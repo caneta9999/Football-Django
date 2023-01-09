@@ -1,0 +1,28 @@
+{% extends "main/base.html" %}
+{% block title %}Visitor's Place{% endblock %}
+
+{% block content %}
+	<h2 class="mb-1">Leave a message here!</h2>
+    <form method="post" action="/visitor" class="form-group">
+        {% csrf_token %} 
+        {{form.as_p}}
+        <div class="input-group-prepend">
+            <button name="save" type="submit" class="btn btn-success">Send</button>
+        </div> 
+    </form>
+    <hr>
+    <br/>
+	<h3>The latest messages</h3>
+	<div class="list-group">
+		{% for message in messages %}
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{message.name}}</h5>
+                <small>{{message.date}}</small>
+            </div>
+            <p class="mb-1">{{message.message}}</p>
+            <small>{{message.favTeam__name}} fan</small>
+        </a>
+		{% endfor %}
+    </div>
+{% endblock %}

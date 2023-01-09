@@ -1,0 +1,21 @@
+{% extends "main/base.html" %}
+{% block title %}Team View{% endblock %}
+
+{% block content %}
+	<h2 class="mb-1">{{team.name}} ({{team.country}})</h2>
+    <a class="btn btn-outline-primary mb-3" href="/admin/main/team/{{team.id}}/change" role="button">Edit</a>
+        {% if achievements %}
+            <h3 class="mb-1">Lastest titles</h3>
+            <a class="btn btn-outline-primary mb-3" href="/admin/main/achievement/add/" role="button">Add</a>
+            <ul class="list-group">
+                {% for achievement in achievements %}
+                    <li class="list-group-item">
+                        <a class="text-primary" href="/admin/main/achievement/{{achievement.id}}/change">{{achievement.championship__name}} - {{achievement.date}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h3 class="mb-1">No titles yet</h3>
+            <a class="btn btn-outline-primary mb-3" href="/admin/main/achievement/add/" role="button">Add</a>
+        {% endif %}
+{% endblock %}

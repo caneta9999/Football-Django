@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<h2 class="mb-2">Home Page</h2> <br/>
+<h3 class="mb-4">
+    Thanks to the creator of the course: <span class="badge badge-secondary"><a href="https://www.youtube.com/watch?v=0mCZdemSsbs">Django Tutorial</a></span> <br/>
+    This course helped me a lot in creating this system.
+</h3><br/>
+<h4 class="mb-4">
+    This site was created to test Django.<br/>
+    <small class="text-muted">It mainly consists of a database of football teams and championships.</small>
+</h4><br/>  
+<div class="row">
+    <span class="badge badge-pill badge-secondary mr-5">Number of teams: <br/>{{ numberRecords.teams.count }}</span>
+    <span class="badge badge-pill badge-secondary mr-5">Number of championships: <br/>{{ numberRecords.championships.count }}</span>
+    <span class="badge badge-pill badge-secondary">Number of achievements: <br/>{{ numberRecords.achievements.count }}</span>
+</div>
+
+{% endblock %}

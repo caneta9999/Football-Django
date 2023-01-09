@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+{% block title %}Championship View{% endblock %}
+
+{% block content %}
+	<h2 class="mb-1">{{championship.name}}</h2>
+		<a class="btn btn-outline-danger mb-3" href="/admin/main/championship/{{championship.id}}/change" role="button">Edit</a>
+	<h3>The teams with the most achievements</h3>
+	<ol>
+		{% for achievement in achievements %}
+			<li>{{achievement.team__name}} - {{achievement.count}} title(s)</li>
+		{% endfor %}
+	</ol>
+{% endblock %}

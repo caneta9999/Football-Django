@@ -1,0 +1,15 @@
+{% extends "main/base.html" %}
+{% block title %}Championships View{% endblock %}
+
+{% block content %}
+	<h2 class="mb-1">Championships</h2>
+		<a class="btn btn-outline-danger mb-3" href="/admin/main/championship/add/" role="button">Create</a>
+	<br/>
+	<ul class="list-group">
+		{% for championship in championships %}
+				<li class="list-group-item" >
+					<a class="text-danger" href="/championship/{{championship.id}}">{{championship.name}}</a>
+				</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
